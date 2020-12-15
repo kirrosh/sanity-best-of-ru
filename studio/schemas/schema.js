@@ -4,9 +4,11 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import richText from './objects/richText'
 import openGraph from './objects/openGraph'
 import captionImage from './objects/captionImage'
+import location from './objects/location'
 import article from './documents/article'
 import author from './documents/author'
 import post from './documents/post'
+import place from './documents/place'
 import { translateFields } from './fieldTranslation'
 
 export default createSchema({
@@ -19,7 +21,8 @@ export default createSchema({
       richText,
       openGraph,
       captionImage,
-      post
+      post,
+      location
     ])
     // Include documents with field translation support.
     // This changes their structure, transforming
@@ -33,6 +36,6 @@ export default createSchema({
     // not be changed.
     .concat(translateFields([
       article,
-      author
-    ]))
+      author,
+    ]), place)
 })

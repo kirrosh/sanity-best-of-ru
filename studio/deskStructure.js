@@ -21,22 +21,22 @@ export default () =>
   S.list()
     .title('Content')
     .items([
-      S.listItem()
-        .title('Field level')
-        .icon(FieldIcon)
-        .child(
-          S.list()
-            .id('field-level')
-            .title('Field level translations')
-            .items(
-              [
-                S.documentTypeListItem('article')
-                  .icon(ArticleIcon),
-                S.documentTypeListItem('author')
-                  .icon(AuthorIcon),
-              ]
-            )
-        ),
+      // S.listItem()
+      //   .title('Field level')
+      //   .icon(FieldIcon)
+      //   .child(
+      //     S.list()
+      //       .id('field-level')
+      //       .title('Field level translations')
+      //       .items(
+      //         [
+      //           S.documentTypeListItem('article')
+      //             .icon(ArticleIcon),
+      //           S.documentTypeListItem('author')
+      //             .icon(AuthorIcon),
+      //         ]
+      //       )
+      //   ),
       S.listItem()
         .title('Document level')
         .icon(DocumentIcon)
@@ -46,22 +46,39 @@ export default () =>
             .title('Document level translations')
             .items([
               S.listItem()
-                .title('Post')
-                .id('post-docs')
+                .title('Места')
+                .id('place-docs')
                 .icon(PostIcon)
-                .schemaType('post')
+                .schemaType('place')
                 .child(
                   S.documentList()
-                    .id('post')
-                    .title('Posts')
+                    .id('place')
+                    .title('Места')
                     // Use a GROQ filter to get documents.
-                    .filter('_type == "post" && (!defined(_lang) || _lang == $baseLang)')
+                    .filter('_type == "place" && (!defined(_lang) || _lang == $baseLang)')
                     .params({ baseLang: i18n.base })
                     .canHandleIntent((_name, params, _context) => {
-                      // Assume we can handle all intents (actions) regarding post documents
-                      return params.type === 'post'
+                      // Assume we can handle all intents (actions) regarding place documents
+                      return params.type === 'place'
                     })
                 )
+              // S.listItem()
+              //   .title('Post')
+              //   .id('post-docs')
+              //   .icon(PostIcon)
+              //   .schemaType('post')
+              //   .child(
+              //     S.documentList()
+              //       .id('post')
+              //       .title('Posts')
+              //       // Use a GROQ filter to get documents.
+              //       .filter('_type == "post" && (!defined(_lang) || _lang == $baseLang)')
+              //       .params({ baseLang: i18n.base })
+              //       .canHandleIntent((_name, params, _context) => {
+              //         // Assume we can handle all intents (actions) regarding post documents
+              //         return params.type === 'post'
+              //       })
+              //   )
             ]
             )
         ),
