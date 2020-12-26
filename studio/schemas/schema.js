@@ -5,6 +5,8 @@ import richText from './objects/richText'
 import openGraph from './objects/openGraph'
 import captionImage from './objects/captionImage'
 import location from './objects/location'
+
+import tag from './documents/tag'
 import article from './documents/article'
 import author from './documents/author'
 import post from './documents/post'
@@ -22,7 +24,9 @@ export default createSchema({
       openGraph,
       captionImage,
       post,
-      location
+      location,
+      tag,
+      place
     ])
     // Include documents with field translation support.
     // This changes their structure, transforming
@@ -34,8 +38,8 @@ export default createSchema({
     // not set localize: true on root level, or
     // set localize: true on any field level will
     // not be changed.
-    .concat(translateFields([
-      article,
-      author,
-    ]), place)
+    // .concat(translateFields([
+    //   article,
+    //   author,
+    // ]), place)
 })

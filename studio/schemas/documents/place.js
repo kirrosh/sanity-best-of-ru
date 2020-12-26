@@ -41,6 +41,22 @@ export default {
       name: 'location',
       title: 'Координаты'
     },
+    {
+      title: 'Tags',
+      name: 'tags',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'tag' }]
+        }
+      ],
+      validation: Rule => Rule.unique(),
+      options: {
+        layout: 'tags'
+      }
+    },
+
     // {
     //   title: 'Slug',
     //   name: 'slug',
