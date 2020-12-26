@@ -42,6 +42,14 @@ export default {
       title: 'Координаты'
     },
     {
+      name: 'markdown',
+      title: 'Доп. Информация',
+      type: 'markdown',
+      options: {
+        minRows: 20
+      }
+    },
+    {
       title: 'Tags',
       name: 'tags',
       type: 'array',
@@ -56,6 +64,7 @@ export default {
         layout: 'tags'
       }
     },
+    
 
     // {
     //   title: 'Slug',
