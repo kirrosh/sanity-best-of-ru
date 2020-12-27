@@ -37,6 +37,11 @@ export default {
       title: 'Instagram'
     },
     {
+      type: 'string',
+      name: 'gmapsLink',
+      title: 'Google maps'
+    },
+    {
       type: 'location',
       name: 'location',
       title: 'Координаты'
